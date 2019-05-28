@@ -1,0 +1,103 @@
+<html>
+    <head>
+    <style>
+        span{
+            color:red;
+        }
+        th{
+            color:red;
+        }
+            </style>
+    </head>
+<body>
+<center><form action="javascript:void(0)"><h2>Enter detail</h2>
+DeviceID:<input type="text" id="divID"/><span id="id_alert"></span><br><br>
+DeviceName:<input type="text" id="divName"/><span id="name_alert"></span><br><br>
+Price:<input type="text" id="price"/><span id="price_alert"></span><br><br>
+Seller:<input type="text" id="seller"/><span id="seller_alert"></span><br><br>
+Address:<input type="text" id="address"/><span id="address_alert"></span><br><br><br>
+<button onclick="myFunction()">submit</button>
+
+</form></center><br>
+<table border='1' id="mytable" width="80%">
+    <center><h2>All Device Details..</h2></center>
+    <tr>
+        <th>Device Id</th>
+        <th>Device Name</th>
+        <th>Price</th>
+        <th>Seller</th>
+        <th>Address</th>
+    </tr>
+</table>
+
+<!--Js function-->
+
+<script>
+      var divID;var divName;var price;var seller;var address;
+    function myFunction()
+    {
+      // event.preventDefault();
+         divID=document.getElementById('divID').value;
+         divName=document.getElementById('divName').value;
+         price=document.getElementById('price').value;
+         seller=document.getElementById('seller').value;
+         address=document.getElementById('address').value;
+        //console.log(divID);
+        if(divID==""){
+        document.getElementById('id_alert').innerHTML="please fill the DevideID";
+            }
+        if(divName==""){
+            document.getElementById('name_alert').innerHTML="please fill the DevideName";
+        } if(price==""){
+            document.getElementById('price_alert').innerHTML="please fill the price";
+        } if(seller==""){
+            document.getElementById('seller_alert').innerHTML="please fill the sellername";
+        }
+        if(address==""){
+            document.getElementById('address_alert').innerHTML="please fill the address";
+        }
+     /* mytable.push(divID);
+        mytable.push(divName);
+        mytable.push(price);
+        mytable.push(seller);
+        mytable.push(address);*/
+
+        //arrays
+            var id_array=[];
+            var name_array=[];
+            var price_array=[];
+            var seller_array=[];
+            var address_array=[];
+            var rownumber=1; var i=0;
+           
+            
+    var row=document.getElementById("mytable");
+                row=row.insertRow(rownumber);
+                id_array[i]=divID;
+                name_array[i]=divName;
+                price_array[i]=price;
+                seller_array[i]=seller;
+                address_array[i]=address;
+//adding row<tr> then <td>
+                var td1=row.insertCell(0);
+                var td2=row.insertCell(1);
+                var td3=row.insertCell(2);
+                var td4=row.insertCell(3);
+                var td5=row.insertCell(4);
+
+
+                td1.innerHTML=divID;
+                td2.innerHTML=divName;
+                td3.innerHTML=price;
+                td4.innerHTML=seller;
+                td5.innerHTML=address;
+
+                rownumber++;
+                i++;
+
+            }
+
+        
+</script>
+</body>
+</html>
